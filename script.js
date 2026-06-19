@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalDisplay = document.getElementById('totalDisplay');
     const testCard = document.getElementById('testCard');
     const groupSelect = document.getElementById('groupSelect');
+    const categorySelect = document.getElementById('categorySelect');
     const speakBtn = document.getElementById('speakBtn');
 
     let vocabulary = [];
@@ -18,9 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const GROUP_SIZE = 20;
 
     // Fetch and parse CSV
-    async function loadVocabulary() {
+    async function loadVocabulary(fileName = 'words.csv') {
         try {
-            const response = await fetch('words.csv');
+            const response = await fetch(fileName);
             if (!response.ok) throw new Error('Fetch failed');
             const data = await response.text();
             parseCSV(data);
@@ -104,6 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
     groupSelect.addEventListener('change', (e) => {
         selectGroup(parseInt(e.target.value));
     });
+
+    if (categorySelect) {
+        categorySelect.addEventListener('change', (e) => {
+            loadVocabulary(e.target.value);
+        });
+    }
 
     function showNextWord() {
         // 篩選出還需要測試的單字 (按照順序)

@@ -25,9 +25,26 @@
 
         <section class="test-card" id="testCard">
             <div id="filePickerArea" style="display: none; margin-bottom: 2rem; text-align: center; border: 1px dashed var(--glass-border); padding: 1.5rem; border-radius: 16px;">
-                <p style="font-size: 0.85rem; margin-bottom: 1rem; color: var(--text-muted);">瀏覽器安全限制，請手動選取 words.csv：</p>
+                <p style="font-size: 0.85rem; margin-bottom: 1rem; color: var(--text-muted);">瀏覽器安全限制，請手動選取您想測試的 .csv 檔案，或使用本機伺服器 (Localhost) 來開啟網頁：</p>
                 <input type="file" id="csvFileInput" accept=".csv" style="display: none;">
                 <button onclick="document.getElementById('csvFileInput').click()" class="secondary-btn" style="width: 100%;">選取單字檔案</button>
+            </div>
+
+            <div class="category-selection" id="categorySelectionArea" style="margin-bottom: 1rem;">
+                <label for="categorySelect">選擇類別:</label>
+                <select id="categorySelect" class="styled-select">
+                    <option value="words.csv">常用會話</option>
+                    <option value="Animals.csv">動物</option>
+                    <option value="Foods.csv">食物</option>
+                    <option value="Fruits.csv">水果</option>
+                    <option value="Furniture.csv">家具</option>
+                    <option value="Insects.csv">昆蟲</option>
+                    <option value="Kitchenware.csv">餐具與廚具</option>
+                    <option value="Organs.csv">器官</option>
+                    <option value="Sports.csv">運動</option>
+                    <option value="Vegetables.csv">蔬菜</option>
+                    <option value="Vehicles.csv">交通工具</option>
+                </select>
             </div>
 
             <div class="group-selection" id="groupSelectionArea" style="margin-bottom: 1.5rem;">
